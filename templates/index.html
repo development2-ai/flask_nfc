@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Efisense - Tag Writer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="/static/css/style.css">
+    <script src="/static/js/script.js"></script>
+</head>
+<body class="bg-gray-100 flex items-center justify-center min-h-screen">
+    <div class="bg-white p-8 rounded-lg shadow-md w-3/5 flex gap-8">
+        
+        <!-- Sección Izquierda: Formulario -->
+        <div class="w-2/3">
+            <h1 class="text-2xl font-bold mb-6">./<span class="text-black">Efisense</span></h1>
+
+            <!-- Select de Sonos Room -->
+            <div class="mb-4">
+                <label for="sonos" class="block text-gray-700 font-medium mb-2">Sonos Room</label>
+                <select id="sonos" class="w-full p-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500" onchange="changeSonos()">
+                    <option value="http://10.10.9.250:5005" selected>Área Social</option>
+                    <option value="http://10.10.9.250:5005" >Estudio Daniela</option>
+                </select>
+            </div>
+            <!-- Plataforma en la cual se quiere grabar -->
+            <div class="mb-4">
+                <label for="plataform" class="block text-gray-700 font-medium mb-2">Plataforma</label>
+                <select class="w-full p-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500" id="plataform" onchange="changePlataform()">
+                    <option value="spotify">Spotify</option>
+                    <option value="applemusic">Apple Music</option>
+                </select>
+            </div>
+            <!-- Plataforma en la cual se quiere grabar -->
+            <div class="mb-4 spotify">
+                <label for="spotify_service" class="block text-gray-700 font-medium mb-2">Servicio de Música</label>
+                <select class="w-full p-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500" id="spotify_service">
+                    <option value="">Selecciona un servicio</option>
+                    <option value="album">Albúm</option>
+                    <option value="track">Canción</option>
+                    <option value="artist">Artista</option>
+                    <option value="playlist">Playlist</option>
+                </select>
+            </div>
+            <div class="mb-4 apple">
+                <label for="apple_service" class="block text-gray-700 font-medium mb-2">Servicio de Música</label>
+                <select class="w-full p-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500" id="apple_service">
+                    <option value="">Selecciona un servicio</option>
+                    <option value="album">Albúm</option>
+                    <option value="song">Canción</option>
+                    <option value="musicArtist">Artista</option>
+                </select>
+            </div>
+
+            <!-- Input de Playlist URL -->
+            <div class="mb-4">
+                <label class="block text-gray-700 font-medium mb-2">ID Music</label>
+                <input type="text" class="w-full p-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500" id="nfc-message">
+            </div>
+
+            <!-- Botón -->
+            <button class="w-full bg-blue-500 text-white font-medium py-2 rounded-md hover:bg-blue-600" onclick="writeNFC()">
+                Escribir TAG
+            </button>
+        </div>
+
+        <!-- Sección Derecha: Caja con estado de escritura -->
+        <div id="box-message" class="w-1/3 flex items-center justify-center border border-gray-300 rounded-lg p-4 bg-gray-100 text-gray-600 font-semibold">
+            <p>Escribiendo Tag...</p>
+        </div>
+    </div>
+</body>
+</html>
