@@ -5,7 +5,7 @@ import os
 
 app = Flask(__name__)
 
-LOCK_FILE = "/home/development2/tmp/nfc_lock.txt"
+LOCK_FILE = "/tmp/nfc_lock.txt"
 
 # Función para escribir en NFC
 def write_nfc(message):
