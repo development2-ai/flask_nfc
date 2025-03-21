@@ -49,6 +49,12 @@ function changePlataform (){
     }
 }
 
+function  changeSonos() {
+    const select = document.getElementById("sonos");
+    const selectedUrl = select.value;
+    window.location.href = selectedUrl; // Esto redirige la página
+}
+
 window.addEventListener("beforeunload", function(event) {
     navigator.sendBeacon("/remove_lock");
 });
